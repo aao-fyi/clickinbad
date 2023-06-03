@@ -1,0 +1,30 @@
+# Root
+baseURL = 'https://clickinbad.arcade.aao.fyi/'
+languageCode = 'en'
+theme = 'gitlab.com/aao-fyi/shock'
+
+# Info
+title = 'ClickinBad'
+copyright = 'ClickinBad Contributors'
+
+# Features
+disableHugoGeneratorInject = false
+disableKinds = ['RSS','taxanomy','term']
+enableGitInfo = true
+enableRobotsTXT = true
+
+# Minify
+[minify]
+  minifyOutput = true
+
+# Build
+[build]
+  # PostCSS
+  writeStats = true
+
+# Module
+[module]
+  # Version
+  [module.hugoVersion]
+    extended = true
+    min = '0.111.0'
