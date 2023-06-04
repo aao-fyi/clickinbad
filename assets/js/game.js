@@ -2193,8 +2193,8 @@ function Game() {
         localStorage.ac = JSON.stringify(ac_to_json());
     }
     function new_update_save_from_pd() {
-        localStorage.sv2 = Base64.encode(JSON.stringify(new_pd_to_json()));
-        localStorage.ac2 = Base64.encode(JSON.stringify(new_ac_to_json()));
+        localStorage.sv2 = btoa(JSON.stringify(new_pd_to_json()));
+        localStorage.ac2 = btoa(JSON.stringify(new_ac_to_json()));
     }
 
     function update_pd_from_json(sv) {
@@ -2314,11 +2314,11 @@ function Game() {
     function new_update_pd_from_save() {
         // Achievements
         if(localStorage.ac2) {
-            var ac = $.parseJSON(Base64.decode(localStorage.ac2));
+            var ac = $.parseJSON(atob(localStorage.ac2));
             new_update_ac_from_json(ac);
         }
         if(localStorage.sv2) {
-            var sv = $.parseJSON(Base64.decode(localStorage.sv2));
+            var sv = $.parseJSON(atob(localStorage.sv2));
             new_update_pd_from_json(sv);
         }
     }
@@ -2359,7 +2359,7 @@ function Game() {
             'ac': new_ac_to_json()
         };
         var exdata_json = JSON.stringify(exdata);
-        var exdata_base64 = Base64.encode(exdata_json);
+        var exdata_base64 = btoa(exdata_json);
         $('#impexp').val(exdata_base64);
         message('Game exported!');
     }
@@ -2374,7 +2374,7 @@ function Game() {
             apply_upgrade('donator_thanks');
             return;
         }
-        var exdata_json = Base64.decode($.trim(imptxt));
+        var exdata_json = atob($.trim(imptxt));
         var exdata = $.parseJSON(exdata_json);
         new_update_ac_from_json(exdata.ac);
         new_update_pd_from_json(exdata.sv);
