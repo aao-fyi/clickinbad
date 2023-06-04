@@ -40,7 +40,6 @@ var tick_ms = 250;
 {% else %}
 var tick_ms = 100;
 {% endif %}
-//var has_gaq = true;
 
 
 function Game() { 
@@ -2344,7 +2343,6 @@ function Game() {
         //update_save_from_pd();
         new_update_save_from_pd();
         last_saved = 0;
-        track_page_view('/game_save');
     }
 
     this.do_load = function() { 
@@ -2352,7 +2350,6 @@ function Game() {
             //update_pd_from_save();
             new_update_pd_from_save();
             message('Game loaded!');
-            track_page_view('/game_load');
         }
     }
 
@@ -2387,13 +2384,11 @@ function Game() {
     this.do_reset = function() { 
         localStorage.removeItem("sv2");
         message('Game reset');
-        track_page_view('/game_reset');
         location.reload();
     }
     this.do_reset_all = function() { 
         localStorage.clear();
         message('Game reset - all');
-        track_page_view('/game_reset_all');
         location.reload();
     }
 
@@ -2496,7 +2491,6 @@ function Game() {
         }
         bn.amount += 1;
         message('You have purchased a '+bn.label+' for $'+pretty_bigint(bn.cost));
-        //track_page_view('/game_buy_bank');
         return true;
     }
 
@@ -2508,7 +2502,6 @@ function Game() {
         var sell_val = get_item_sell_value(bn);
         earn_cash(sell_val);
         message('You sold a '+bn.label+' for $'+pretty_bigint(sell_val));
-        //track_page_view('/game_sell_bank');
         bn.amount -= 1;
         return true;
     }
@@ -2521,7 +2514,6 @@ function Game() {
         cl.amount += 1;
         message('You have purchased a '+cl.label+' for $'+pretty_bigint(cl.cost));
         fix_clickers();
-        //track_page_view('/game_buy_clicker');
         return true;
     }
 
@@ -2533,7 +2525,6 @@ function Game() {
         var sell_val = get_item_sell_value(cl);
         earn_cash(sell_val);
         message('You sold a '+cl.label+' for $'+pretty_bigint(sell_val));
-        //track_page_view('/game_sell_clicker');
         cl.amount -= 1;
         return true;
     }
@@ -2546,7 +2537,6 @@ function Game() {
         sl.amount += 1;
         message('You have purchased a '+sl.label+' for $'+pretty_bigint(sl.cost));
         fix_sellers();
-        //track_page_view('/game_buy_seller');
         return true;
     }
 
@@ -2558,7 +2548,6 @@ function Game() {
         var sell_val = get_item_sell_value(sl);
         earn_cash(sell_val);
         message('You sold a '+sl.label+' for $'+pretty_bigint(sell_val));
-        //track_page_view('/game_sell_seller');
         sl.amount -= 1;
         return true;
     }
@@ -2573,7 +2562,6 @@ function Game() {
             return false; 
         } 
         message('You have unlocked '+upg.label+' for $'+pretty_bigint(upg.cost));
-        track_page_view('/game_buy_upgrade');
         fix_upgrades();
     }
 
@@ -3350,33 +3338,9 @@ function pretty_int(num) {
 }
 
 // Analytics
-function track_page_view(pg) { 
-    if(has_gaq) {
-        _gaq.push(['_trackPageview',pg]);
-        return true;
-    }
-    return false;
-}
-
-function track_event(category, action, message) {
-    return false;
-    if(has_gaq) { 
-        _gaq.push(['_trackEvent', category, action, message]);
-        return true;
-    } 
-    return false;
-}
-
 function log(type, msg, data) { 
     var obj = null;
     if(data) { obj = data; }
-    remote_log({
-        'type':type,
-        'text':msg,
-        'version':'{{version}}',
-        'user_agent':navigator.userAgent,
-        'extra':Base64.encode(JSON.stringify(obj)),
-    });
     console.log(type.toUpperCase()+': '+msg);
 }
 
@@ -3391,13 +3355,3 @@ function debug_log(msg, data) {
 function error_log(msg, data) {
     log('error',msg,data);
 }
-
-function remote_log(data) {
-    if(has_loggly) { 
-        _LTracker.push(data);
-        return true;
-    }
-    return false;
-}
-
-
