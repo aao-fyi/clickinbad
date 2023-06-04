@@ -2966,7 +2966,7 @@ function Game() {
             var ac = pd.achievements[k];
             var template = $('#tpl_achievement').html();
             var data = {'ac':ac, 'id':k};
-            var html = Mustache.to_html(template, data);
+            var html = Mustache.render(template, data);
             ac_el.prepend(html);
         }
     }
@@ -2985,7 +2985,7 @@ function Game() {
             var bn = pd.banks[k];
             var template = $('#tpl_bank').html();
             var data = {'bn':bn, 'id':k};
-            var html = Mustache.to_html(template, data);
+            var html = Mustache.render(template, data);
             bn_el.prepend(html);
         }
     }
@@ -3005,7 +3005,7 @@ function Game() {
             var cl = pd.clickers[k];
             var template = $('#tpl_clicker').html();
             var data = {'cl':cl, 'id':k};
-            var html = Mustache.to_html(template, data);
+            var html = Mustache.render(template, data);
             cs_el.prepend(html);
         }
     }
@@ -3025,7 +3025,7 @@ function Game() {
             var sl = pd.sellers[k];
             var template = $('#tpl_seller').html();
             var data = {'sl':sl, 'id':k};
-            var html = Mustache.to_html(template, data);
+            var html = Mustache.render(template, data);
             sl_el.prepend(html);
         }
     }
@@ -3044,7 +3044,7 @@ function Game() {
             var upg = pd.upgrades[k];
             var template = $('#tpl_upgrade').html();
             var data = {'upg':upg, 'id':k};
-            var html = Mustache.to_html(template, data);
+            var html = Mustache.render(template, data);
             upgs_el.prepend(html);
         }
     }

@@ -217,3 +217,14 @@
 {% endif %}
 </body>
 </html>
+
+{{ define "foot" }}
+  {{ $jqueryJS := resources.GetRemote "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.slim.js" }}
+  {{ $mustacheJS := resources.GetRemote "https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.js" }}
+  {{ $gameJS := resources.Get "js/game.js" }}
+  {{ $initJS := resources.Get "js/init.js" }}
+
+  {{ $indexJS := slice $jqueryJS $mustacheJS $gameJS $initJS | resources.Concat "js/index.js" | minify }}
+  {{ $indexSRI := $indexJS | resources.Fingerprint "sha384" }}
+  <script defer src="{{ $indexSRI.RelPermalink }}" integrity="{{ $indexSRI.Data.Integrity }}"></script>
+{{ end }}
