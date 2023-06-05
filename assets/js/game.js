@@ -19,8 +19,7 @@ var tick_ms = 333;
 function Game() {
 
     var pd = {
-        'title':'Clicking Bad',
-        'version':'{{version}}',
+        'title':'ClickinBad',
         'make_amount':1,
         'make_rps_multiplier':0,
         'sell_amount':1,
@@ -2842,7 +2841,8 @@ function Game() {
             }
             ac_tot += 1;
         }
-        $('#achievements_total').html(pretty_int(ac_tot));
+        $('.achievements_unlocked').html(pretty_int(ac_unl));
+        $('.achievements_total').html(pretty_int(ac_tot));
 
     }
 
@@ -2886,8 +2886,8 @@ function Game() {
             }
             el.removeClass('hidden');
         }
-        $('#upgrades_unlocked').html(pretty_int(up_unl));
-        $('#upgrades_total').html(pretty_int(up_tot));
+        $('.upgrades_unlocked').html(pretty_int(up_unl));
+        $('.upgrades_total').html(pretty_int(up_tot));
     }
 
 
@@ -3310,7 +3310,7 @@ function pretty_int(num) {
     return num_str;
 }
 
-// Analytics
+// Log
 function log(type, msg, data) {
     var obj = null;
     if(data) { obj = data; }

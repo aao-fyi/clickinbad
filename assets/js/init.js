@@ -6,9 +6,8 @@ $(document).ready(function() {
   sec_tmr = setInterval("gm.sec_tick()", 1000);
   save_tmr = setInterval("gm.do_save()", 30000);
   event_tmr = setInterval("gm.check_events()", 120000);
-  ver_tmr = setInterval("gm.check_version()", 620000);
   gm.do_load();
-  message('Welcome to ClickinBad, Heisenberg.');
+  message('Welcome to ClickinBad, Heisenberg');
 
   // Events
   var bind_type = 'click';
