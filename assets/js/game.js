@@ -34,14 +34,7 @@ var last_saved = 0;
 var last_click = 0;
 var last_bust = 0;
 var last_float = 10;
-var tick_ms = 100;
-/* LOOKHERE:TODO: replace this functionality
-{% if isapp %}
-var tick_ms = 250;
-{% else %}
-var tick_ms = 100;
-{% endif %}
-*/
+var tick_ms = 333;
 
 function Game() {
 
@@ -2581,7 +2574,6 @@ function Game() {
         fix_sellers();
         fix_upgrades();
         fix_make_sell();
-        fix_title();
         fix_risk();
         fix_achievements();
         fix_banks();
@@ -2680,10 +2672,6 @@ function Game() {
     function fix_saved() {
         last_saved += 1;
         $('#last_saved').html('Game saved '+last_saved+' seconds ago');
-    }
-
-    function fix_title() {
-        document.title = '$'+pretty_bigint(pd.cash.amount)+' | '+pd.title;
     }
 
     function fix_make_sell() {
