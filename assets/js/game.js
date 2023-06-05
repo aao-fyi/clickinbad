@@ -29,7 +29,6 @@ var save_tmr = null;
 var last_save_tmr = null;
 var stat_tmr = null;
 var event_tmr = null;
-var ver_tmr = null;
 var last_tick = (new Date).getTime();
 var last_saved = 0;
 var last_click = 0;
@@ -1382,16 +1381,6 @@ function Game() {
                 'prereq':'u_cantina',
                 'sid':'u55',
             },
-            'donator_thanks':{
-                'label':'Thank You',
-                'description':'Thanks for donating, your meth is now worth $50 more per batch',
-                'cost':321500000,
-                'action':'widget_roi',
-                'mod':50,
-                'purchased':false,
-                'prereq':'hidden',
-                'sid':'u70',
-            },
          },
 
         // ACHIEVEMENTS
@@ -1972,20 +1961,6 @@ function Game() {
         return true;
     }
 
-    // Version check
-    this.check_version = function() {
-        $.get('/version.json',
-            function(data) {
-                if(data.data.version) {
-                    if(data.data.version > pd.version) {
-                        $('#updated').show(500);
-                    }
-                }
-            }
-
-        ,"json");
-    }
-
     // Calculate and return the player's risk level
     function get_risk() {
         var rsk = 0;
@@ -2370,11 +2345,6 @@ function Game() {
         var imptxt = $('#impexp').val();
         if(!imptxt) {
             return false;
-        }
-        if(imptxt == 'THANK YOU!') {
-            good_message('You have unlocked the "Thank You" hidden upgrade');
-            apply_upgrade('donator_thanks');
-            return;
         }
         var exdata_json = atob($.trim(imptxt));
         var exdata = $.parseJSON(exdata_json);
@@ -2870,7 +2840,6 @@ function Game() {
             }
             ac_tot += 1;
         }
-        $('#achievements_unlocked').html(pretty_int(ac_unl));
         $('#achievements_total').html(pretty_int(ac_tot));
 
     }
