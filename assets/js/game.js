@@ -35,12 +35,14 @@ var last_saved = 0;
 var last_click = 0;
 var last_bust = 0;
 var last_float = 10;
+var tick_ms = 100;
+/* LOOKHERE:TODO: replace this functionality
 {% if isapp %}
 var tick_ms = 250;
 {% else %}
 var tick_ms = 100;
 {% endif %}
-
+*/
 
 function Game() {
 
@@ -2414,13 +2416,13 @@ function Game() {
     }
 
     this.do_make_click = function() {
-        {% if not isapp %}
+        // LOOKHERE:INVESTIGATE: Mobile skip from here
         var nw = (new Date).getTime();
         if((nw - last_click) < 70) {
             return false;
         }
         last_click = nw;
-        {% endif %}
+        // LOOKHERE: Mobile skip end here
         var amt = this.get_click_make_amount();
         if(do_make(amt)) {
             //message('You made '+pretty_int(pd.make_amount)+' '+pd.widgets.label);
@@ -2447,13 +2449,13 @@ function Game() {
     }
 
     this.do_sell_click = function() {
-        {% if not isapp %}
+        // LOOKHERE:INVESTIGATE: Mobile skip from here
         var nw = (new Date).getTime();
         if((nw - last_click) < 70) {
             return false;
         }
         last_click = nw;
-        {% endif %}
+        // LOOKHERE: Mobile skip end here
         var sale = do_sell(this.get_click_sell_amount());
         if(sale) {
             //message('You sold '+pretty_int(sale)+' '+pd.widgets.label);
