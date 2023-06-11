@@ -28,3 +28,33 @@ enableRobotsTXT = true
   [module.hugoVersion]
     extended = true
     min = '0.111.0'
+
+[params]
+  description = 'Click your life away in this Breaking Bad inspired clicker game.'
+  # PostCSS
+  postCSS = true
+  # Bootstrap JS
+  bootstrapJS = false
+  # Navbar
+  navbarBrandLogo = false
+  navbarBrandText = false
+  navbarFixedTop = false
+  # Header
+  headerState = false
+  # Footer
+  footerState = false
+  # Manifest
+  manifestJSON = true
+  manifestColorBG = "#28d"
+
+
+# Footer
+[menu]
+  [[menu.footer]]
+    identifier = 'privacy'
+    name = 'Privacy'
+    url = 'https://aao.fyi/privacy/'
+  [[menu.footer]]
+    identifier = 'sitemap'
+    name = 'Sitemap'
+    url = '/sitemap.xml'
