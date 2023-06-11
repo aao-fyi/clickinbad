@@ -1,5 +1,7 @@
 # ClickinBad
-Click your life away in this Breaking Bad inspired clicker game. Fork of [Aaron Meier's Clicking Bad](https://github.com/nullism/clickingbad). This project includes some interface changes, component updates, and has been restructed for Hugo site generation.
+Click your life away in this Breaking Bad inspired clicker game. Fork of [Aaron Meier's Clicking Bad](https://github.com/nullism/clickingbad); not affiliated with the original project. This project includes some interface changes, component updates, and has been restructured for Hugo site generation.
+
+[clickinbad.arcade.aao.fyi](https://clickinbad.arcade.aao.fyi/)
 
 ## Screenshot
 ![screenshot](assets/img/screenshot.png)
