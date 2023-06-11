@@ -2601,17 +2601,17 @@ function Game() {
             var el = $('#'+k);
             var el_lbl = $('#'+k+'_lbl');
             if((ac.hidden)&&(!ac.unlocked)) {
-                el.addClass('hidden');
+                el.addClass('d-none');
                 continue;
             }
             if(ac.unlocked) {
-                el.removeClass('hidden');
-                el.removeClass('semi_trans');
+                el.removeClass('d-none');
+                el.removeClass('opacity-50');
                 el_lbl.addClass('purchased');
                 el.removeClass('locked');
             } else {
                 el.addClass('locked');
-                el.addClass('semi_trans');
+                el.addClass('opacity-50');
             }
         }
 
@@ -2640,7 +2640,7 @@ function Game() {
             el_rps.html(pretty_bigint(bn.rps));
 
             if((!bn.unlocked)) {
-                el.addClass('hidden');
+                el.addClass('d-none');
                 continue;
             }
 
@@ -2656,7 +2656,7 @@ function Game() {
                 el_sell_btn.attr('disabled',false);
             }
 
-            el.removeClass('hidden');
+            el.removeClass('d-none');
         }
     }
 
@@ -2734,9 +2734,9 @@ function Game() {
                 el_btn.attr('disabled', false);
             }
             if(!cl.unlocked) {
-                el.addClass('hidden');
+                el.addClass('d-none');
             } else {
-                el.removeClass('hidden');
+                el.removeClass('d-none');
             }
             el_cst.html(pretty_bigint(cl.cost));
             el_amt.html(pretty_int(cl.amount));
@@ -2774,9 +2774,9 @@ function Game() {
                 el_btn.attr('disabled', false);
             }
             if(!sl.unlocked) {
-                el.addClass('hidden');
+                el.addClass('d-none');
             } else {
-                el.removeClass('hidden');
+                el.removeClass('d-none');
             }
             el_cst.html(pretty_bigint(sl.cost));
             el_amt.html(pretty_int(sl.amount));
@@ -2859,20 +2859,20 @@ function Game() {
                 var req = pd.upgrades[upg.prereq];
                 if((req)&&(!req.purchased)) {
                     up_tot += 1;
-                    el.addClass('hidden');
+                    el.addClass('d-none');
                     continue;
                 }
             }
 
             if((upg.prereq == 'hidden')&&(!upg.purchased)) {
-                el.addClass('hidden');
+                el.addClass('d-none');
                 continue;
             } else {
                 up_tot += 1;
             }
 
             if(upg.purchased) {
-                el_btn.addClass('hidden');
+                el_btn.addClass('d-none');
                 $('#'+k+'_lbl').addClass('purchased');
                 el_cst.html('&#10004;');
                 up_unl += 1;
@@ -2884,7 +2884,7 @@ function Game() {
             } else {
                 el_btn.attr('disabled', false);
             }
-            el.removeClass('hidden');
+            el.removeClass('d-none');
         }
         $('.upgrades_unlocked').html(pretty_int(up_unl));
         $('.upgrades_total').html(pretty_int(up_tot));
@@ -3238,16 +3238,16 @@ function add_message(msg, _type) {
     }
 }
 function error(msg) {
-    add_message('&#10007; '+msg, 'error');
+    add_message('&#10007; '+msg, 'text-danger');
 }
 function message(msg) {
     add_message('&#9993; '+msg, 'message');
 }
 function good_message(msg) {
-    add_message('&#9733; '+msg, 'good_message');
+    add_message('&#9733; '+msg, 'text-success');
 }
 function bad_message(msg) {
-    add_message('&#10007; '+msg, 'bad_message');
+    add_message('&#10007; '+msg, 'text-warning');
 }
 
 /*******************************************************************************

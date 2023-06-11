@@ -1,0 +1,84 @@
+#last_saved {
+  color: #eee;
+  font-size: 0.9em;
+  text-align: center;
+}
+#risk_div {
+  color: #fff;
+  font-size: 1.1em;
+  padding: 3px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+#last_message {
+  color: #eee;
+}
+#last_message div {
+  margin: auto;
+}
+#messages {
+  position: relative;
+  width: 100%;
+  border: 1px solid #39e;
+  overflow: hidden;
+  border-radius: 10px;
+  color: #eee;
+}
+#last_message div, #messages div {
+  margin-bottom: -2px;
+}
+
+.make_up, .sell_up {
+  display: none;
+  z-index: 1500;
+  position: fixed;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #ccc;
+  text-shadow: 0px 1px 1px #333;
+}
+.make_up {
+  color: #58f;
+}
+.sell_up {
+  color: #5e5;
+}
+
+#make_sell_wrap {
+  border-bottom: 2px solid #dde;
+  border-radius: 5px;
+  width: 100%;
+}
+#make_div, #sell_div {
+  padding: 3px;
+  margin: 4px;
+  text-align: center;
+}
+#make_btn, #sell_btn {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select:none;
+  user-select:none;
+  margin: auto;
+  padding: 10px;
+  width: 220px;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+}
+#make_btn:disabled, #sell_btn:disabled {
+  color: #ddd;
+}
+#make_btn {
+  background-color: #39f;
+  border-color: #27e;
+  text-shadow: -1px -1px 1px #27e;
+}
+#sell_btn {
+  background-color: #1c3;
+  border-color: #0a0;
+  text-shadow: -1px -1px 1px #0a0;
+}

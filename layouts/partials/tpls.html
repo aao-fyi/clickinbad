@@ -1,43 +1,42 @@
 {{ print `
 <script id="tpl_achievement" type="text/template">
-  <div id="{{id}}" class="s_div">
-    <h3 id="{{id}}_lbl">
+  <div id="{{id}}" class="p-1 m-1 bg-body-secondary rounded">
+    <h3 id="{{id}}_lbl" class="m-1">
       {{ac.label}}
     </h3>
-    <p class="small">
+    <p class="m-0 p-1">
       {{ac.description}}
     </p>
   </div>
 </script>
 
 <script id="tpl_bank" type="text/template">
-  <div id="{{id}}" class="s_div">
-    <h3 id="{{id}}_lbl">{{bn.label}}
-      <label id="{{id}}_amt" class="grey pull_right">{{bn.amount}}</label>
+  <div id="{{id}}" class="p-1 m-1 bg-body-secondary rounded clearfix">
+    <h3 id="{{id}}_lbl" class="m-1">{{bn.label}}
+      <label id="{{id}}_amt" class="text-body-secondary float-end">{{bn.amount}}</label>
     </h3>
-    <p class="small">
+    <p class="m-0 p-1">
       <strong>$<span id="{{id}}_cst">{{bn.cost}}</span></strong> &mdash;
-      <em class="grey">{{bn.description}}</em>
+      <em class="text-body-secondary">{{bn.description}}</em>
     </p>
-    <p class="pull_right small">
+    <p class="m-0 p-1 float-end">
       Launders <strong>$<span id="{{id}}_rps">{{bn.rps}}</span></strong> per second
     </p>
     <button id="{{id}}_btn" onclick="gm.buy_bank('{{id}}')">Buy</button>
     <button id="{{id}}_sell_btn" onclick="gm.sell_bank('{{id}}')">Sell</button>
-    <p class="clear"></p>
   </div>
 </script>
 
 <script id="tpl_clicker" type="text/template">
-  <div id="{{id}}" class="s_div">
-    <h3 id="{{id}}_lbl">{{cl.label}}
-      <label id="{{id}}_amt" class="grey pull_right">{{cl.amount}}</label>
+  <div id="{{id}}" class="p-1 m-1 bg-body-secondary rounded">
+    <h3 id="{{id}}_lbl" class="m-1">{{cl.label}}
+      <label id="{{id}}_amt" class="text-body-secondary float-end">{{cl.amount}}</label>
     </h3>
-    <p class="small">
+    <p class="m-0 p-1">
       <strong>$<span id="{{id}}_cst">{{cl.cost}}</span></strong> &mdash;
-      <em class="grey">{{cl.description}}</em>
+      <em class="text-body-secondary">{{cl.description}}</em>
     </p>
-    <p class="pull_right small">
+    <p class="m-0 p-1 float-end">
       Cooks <strong><span id="{{id}}_rps">{{cl.rps}}</span></strong> per second;
       <strong><span id="{{id}}_rsk">{{cl.risk}}</span>%</strong> risk
     </p>
@@ -47,15 +46,15 @@
 </script>
 
 <script id="tpl_seller" type="text/template">
-  <div id="{{id}}" class="s_div">
-    <h3 id="{{id}}_lbl">{{sl.label}}
-      <label id="{{id}}_amt" class="grey pull_right">{{sl.amount}}</label>
+  <div id="{{id}}" class="p-1 m-1 bg-body-secondary rounded">
+    <h3 id="{{id}}_lbl" class="m-1">{{sl.label}}
+      <label id="{{id}}_amt" class="text-body-secondary float-end">{{sl.amount}}</label>
     </h3>
-    <p class="small">
+    <p class="m-0 p-1">
       <strong>$<span id="{{id}}_cst">{{sl.cost}}</span></strong> &mdash;
-      <em class="grey">{{sl.description}}</em>
+      <em class="text-body-secondary">{{sl.description}}</em>
     </p>
-    <p class="pull_right small">
+    <p class="m-0 p-1 float-end">
       Sells <strong><span id="{{id}}_rps">{{sl.rps}}</span></strong> per second;
       <strong><span id="{{id}}_rsk">{{sl.risk}}</span>%</strong> risk
     </p>
@@ -65,12 +64,12 @@
 </script>
 
 <script id="tpl_upgrade" type="text/template">
-  <div id="{{id}}" class="s_div">
-    <h3 id="{{id}}_lbl">
+  <div id="{{id}}" class="p-1 m-1 bg-body-secondary rounded">
+    <h3 id="{{id}}_lbl" class="m-1">
       {{upg.label}}
-      <span id="{{id}}_cst" class="grey pull_right">${{upg.cost}}</span>
+      <span id="{{id}}_cst" class="text-body-secondary float-end">${{upg.cost}}</span>
     </h3>
-    <p class="small grey"><em>{{upg.description}}</em></p>
+    <p class="m-0 p-1 text-body-secondary"><em>{{upg.description}}</em></p>
     <button id="{{id}}_btn" onclick="gm.buy_upgrade('{{id}}')">Purchase</button>
   </div>
 </script>

@@ -1,0 +1,16 @@
+button {
+  margin: 1px;
+  background-color: #bbb;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  color: #fff;
+  text-shadow: -1px -1px 0px #aaa;
+  font-weight: bold;
+  padding: 5px;
+}
+button:disabled, button.disabled {
+  color: #aaa;
+  background-color: #777;
+  border-color: #777;
+  text-shadow: none;
+}

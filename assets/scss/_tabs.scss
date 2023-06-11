@@ -1,0 +1,74 @@
+.tab {
+  outline: none;
+  width: 48%;
+}
+.tab.active {
+  background: #eee;
+  border-color: #ccc;
+  color: #777;
+  text-shadow: none;
+}
+
+.message {
+  margin: 0px;
+  padding: 3px;
+}
+.message.text-danger {
+  font-weight: bold;
+}
+.purchased {
+  color: #0a0;
+}
+.locked {
+  color: #777;
+}
+.max {
+  width: 100%;
+  clear: both;
+  margin: 0px;
+}
+.resource {
+  float: left;
+  padding: 3px;
+  margin: 2px;
+  border: 1px solid #eee;
+}
+
+/* Responsive layouts */
+
+/* Small width desktop */
+@media screen and (min-width: 200px) {
+  .tab {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 400px) {
+  .tab {
+    width: 48%;
+  }
+}
+@media screen and (min-width: 700px) {
+  .tab {
+    width: 48%;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .tab {
+    width: 31%;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .tab {
+    width: 23%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .tab {
+    width: 19%;
+  }
+}
+@media screen and (min-width: 1900px) {
+  .tab {
+    width: 15%;
+  }
+}
