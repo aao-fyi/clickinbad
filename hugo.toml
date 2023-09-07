@@ -1,5 +1,5 @@
 # Root
-baseURL = 'https://clickinbad.arcade.aao.fyi/'
+baseURL = '/clickinbad/'
 languageCode = 'en'
 theme = 'gitlab.com/aao-fyi/shock'
 
